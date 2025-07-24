@@ -1,15 +1,4 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Wed Sep 11 00:33:59 2024
-
-@author: lkong
-
-Torney 2014 model
-
-to plot Fig.1 (c)
-
-"""
-
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -25,8 +14,8 @@ omega_g = 0.1
 noise_sigma = 1.0  # sigma, amplitude of noise
 
 
-para_set = np.arange(0.5, 0.65 + 0.02, 0.02) # range of omega s to sweep
-repeat_num = 3 # number of repeating the simulation
+para_set = np.arange(0.5, 0.7 + 0.02, 0.02) # range of omega s to sweep
+repeat_num = 3 # number of times to repeat the simulation
 
 
 def G(t, half_period=250, high_value=1.0, low_value=-1.0):
@@ -85,7 +74,7 @@ plt.figure(figsize=(10, 6))
 plt.plot(para_set, np.average(result_set,axis=1), 'o-')
 plt.xlabel('omega s')
 plt.ylabel('accuracy')
-plt.ylim(0.39, 0.94)
+plt.ylim(0.39, 1.0)
 plt.grid(True, which='both', linestyle='--', linewidth=0.5, alpha=0.7)
 plt.show()
 
