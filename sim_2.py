@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+#code to reproduce simulations of Kong et al. 2025. A Brief Natural History of Misinformation J. Roy. Soc. Interface
+#Figure 5A-C
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -27,8 +29,8 @@ def drift(g_i, G_t):
 def main_sim(omega_s):
     len_time_steps = int(T/dt)  # number of time steps
     g = np.zeros((num_agents, len_time_steps)) # personal estimates
-    u = np.zeros((num_agents, len_time_steps)) # actions
-    acc = np.zeros((num_agents, len_time_steps-1)) # accuracy 
+    u = np.zeros((num_agents, len_time_steps)) # decisions/actions
+    acc = np.zeros((num_agents, len_time_steps-1)) # accuracy of the decisions
 
     # simulate the Ornstein-Uhlenbeck process with the 2nd order Heun method    
     u[:,0] = np.random.choice([-1, 1], size=num_agents)
@@ -77,4 +79,5 @@ plt.ylabel('accuracy')
 plt.ylim(0.39, 1.0)
 plt.grid(True, which='both', linestyle='--', linewidth=0.5, alpha=0.7)
 plt.show()
+
 
